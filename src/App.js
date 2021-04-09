@@ -2,6 +2,7 @@ import './App.css';
 import firebase from './firebase';
 import Header from './Header.js';
 import {useState, useEffect} from 'react';
+import PetInfo from './PetInfo.js';
 
 
 
@@ -34,6 +35,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <PetInfo />
       {
         petInfo.map( (petArray) => {
           return (
