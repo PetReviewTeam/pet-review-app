@@ -7,8 +7,6 @@ import PetInfo from './PetInfo.js';
 
 
 function App() {
-  const [review, setReview] = useState('');
-  const [userInput, setUserInput] = useState('');
   const [petInfo, setPetInfo] = useState([])
 
   useEffect( () => {
