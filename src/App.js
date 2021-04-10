@@ -23,7 +23,8 @@ function App() {
           personality: data[key].personality,
           species: data[key].species,
           image: data[key].url,
-          id: key
+          id: key,
+          reviews: data[key].reviews
         })
       };
       setPetInfo(newState);
@@ -46,7 +47,8 @@ function App() {
                 personality={petObject.personality}
                 species={petObject.species}
                 image={petObject.image}
-                id={petObject.id}/>
+                id={petObject.id}
+                reviewObj={petObject.reviews}/>
               )
             })
           }

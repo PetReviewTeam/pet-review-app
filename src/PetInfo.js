@@ -1,18 +1,19 @@
 import PetReview from './PetReview.js';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import firebase from './firebase';
 
 const PetInfo = (props) => {
-    const [review, setReview] = useState([]);
     const [userInput, setUserInput] = useState('');
 
     const handleClick = (e) => {
         e.preventDefault();
         const dbRef = firebase.database().ref(props.id);
+        if (userInput) {
         dbRef.child('reviews').push(userInput)
         setUserInput('');
+        }
     }
 
     const handleChange = (e) => {
@@ -58,7 +59,7 @@ const PetInfo = (props) => {
                 <FontAwesomeIcon icon={faChevronDown} aria-hidden="false" title="Show reviews"/>
                 <FontAwesomeIcon icon={faChevronUp} aria-hidden="false" title="Hide reviews"/>
             </div>
-            <PetReview />
+            <PetReview reviews={props.reviewObj}/>
         </>
     )
 }

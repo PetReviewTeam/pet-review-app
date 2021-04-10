@@ -1,15 +1,38 @@
-const PetReview = () => {
+import {useEffect, useState} from 'react';
+
+const PetReview = (props) => {
+    const [userReview, setUserReview] = useState([]);
+
+    useEffect( () => {
+        const newState = [];
+        for (let key in props.reviews) {
+            newState.push({
+                key: key,
+                review: props.reviews[key]
+            });
+        };
+        setUserReview(newState);
+    }, []);
+
+    
     return (
         <>
-        <article>
-            <div className="reviewerInfo">
-                <p className="name">Anonymous Pet Lover</p>
-                <p>April 10, 2021</p>
-            </div>
-            <div className="reviewText">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut quasi at possimus voluptatibus ad iste rerum eaque? Ipsa, quae dolorum rem aliquam voluptate tempore libero iusto est deleniti possimus neque incidunt corporis consequatur repudiandae numquam non assumenda hic id quaerat. Nihil, in dolorum. Ad quasi quibusdam at maxime quos nemo!</p>
-            </div>
-        </article>
+        {
+            userReview.map( (petReviews) => {
+                console.log(petReviews.key)
+                return (
+                    <article key={petReviews.key}>
+                        <div className="reviewerInfo">
+                            <p className="name">Anonymous Pet Lover</p>
+                            <p>April 10, 2021</p>
+                        </div>
+                        <div className="reviewText">
+                            <p>{petReviews.review}</p>
+                        </div>
+                    </article>
+                )
+            })
+        }
         </>
     )
 }

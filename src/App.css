@@ -116,6 +116,11 @@ button {
   align-self: flex-end;
 }
 
+button:hover,
+button:focus {
+  cursor: pointer;
+}
+
 /* reviews styling */
 
 article {
