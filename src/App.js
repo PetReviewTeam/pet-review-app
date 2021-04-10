@@ -16,7 +16,6 @@ function App() {
     dbRef.on('value', (response) => {
       const newState = [];
       const data = response.val();
-      console.log(data)
       for (let key in data) {
         newState.push({
           age: data[key].age,
@@ -25,7 +24,7 @@ function App() {
           name: data[key].name,
           personality: data[key].personality,
           species: data[key].species,
-          url: data[key].url
+          image: data[key].url
         })
       };
       setPetInfo(newState);
@@ -35,14 +34,24 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <PetInfo />
-      {
-        petInfo.map( (petArray) => {
-          return (
-            console.log(petArray)
-          )
-        })
-      }
+      <div className="wrapper">
+        <div className="petInfoFlex">
+          {
+            petInfo.map( (petObject) => {
+              return (
+                <PetInfo 
+                name={petObject.name} 
+                age={petObject.age}
+                dislikes={petObject.dislikes}
+                likes={petObject.likes}
+                personality={petObject.personality}
+                species={petObject.species}
+                image={petObject.image}/>
+              )
+            })
+          }
+        </div>
+      </div>
     </div>
   );
 }
