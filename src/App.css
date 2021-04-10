@@ -66,6 +66,19 @@ ul li {
   justify-content: space-evenly;
   border: black solid 2px;
   min-height: 350px;
+  position: relative;
+}
+
+.fa-chevron-down,
+.fa-chevron-up {
+  position: absolute;
+  font-size: 2rem;
+  left: 20px;
+  bottom: 10px;
+}
+
+.fa-chevron-down {
+  visibility: hidden;
 }
 
 .information {

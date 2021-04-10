@@ -1,13 +1,22 @@
 import PetReview from './PetReview.js';
 import {useState, useEffect} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import firebase from './firebase';
 
 const PetInfo = (props) => {
-    const [review, setReview] = useState('');
+    const [review, setReview] = useState([]);
     const [userInput, setUserInput] = useState('');
 
     const handleClick = (e) => {
         e.preventDefault();
-        console.log(e.target)
+        const dbRef = firebase.database().ref(props.id);
+        dbRef.child('reviews').push(userInput)
+        setUserInput('');
+    }
+
+    const handleChange = (e) => {
+        setUserInput(e.target.value)
     }
 
     return (
@@ -38,9 +47,16 @@ const PetInfo = (props) => {
                 </ul>
                 <form action="submit" className="review">
                     <label htmlFor="leaveReview" className="sr-only"></label>
-                    <textarea name="leaveReview" id="leaveReview" placeholder="Leave a message about the pet!"></textarea>
+                    <textarea 
+                    name="leaveReview" 
+                    id="leaveReview" 
+                    placeholder="Leave a message about the pet!" 
+                    value={userInput} 
+                    onChange={handleChange}></textarea>
                     <button onClick={handleClick}>Submit</button>
                 </form>
+                <FontAwesomeIcon icon={faChevronDown} aria-hidden="false" title="Show reviews"/>
+                <FontAwesomeIcon icon={faChevronUp} aria-hidden="false" title="Hide reviews"/>
             </div>
             <PetReview />
         </>

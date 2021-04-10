@@ -22,7 +22,8 @@ function App() {
           name: data[key].name,
           personality: data[key].personality,
           species: data[key].species,
-          image: data[key].url
+          image: data[key].url,
+          id: key
         })
       };
       setPetInfo(newState);
@@ -44,7 +45,8 @@ function App() {
                 likes={petObject.likes}
                 personality={petObject.personality}
                 species={petObject.species}
-                image={petObject.image}/>
+                image={petObject.image}
+                id={petObject.id}/>
               )
             })
           }
