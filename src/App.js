@@ -37,7 +37,7 @@ function App() {
       <div className="wrapper">
         <div className="petInfoFlex">
           {
-            petInfo.map( (petObject) => {
+            petInfo.map( (petObject, i) => {
               return (
                 <PetInfo 
                 name={petObject.name} 
@@ -48,7 +48,8 @@ function App() {
                 species={petObject.species}
                 image={petObject.image}
                 id={petObject.id}
-                reviewObj={petObject.reviews}/>
+                reviewObj={petObject.reviews}
+                key={`pet${i}`}/>
               )
             })
           }

@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 
 const PetReview = (props) => {
+    console.log(props)
     const [userReview, setUserReview] = useState([]);
-
     useEffect( () => {
         const newState = [];
         for (let key in props.reviews) {
@@ -12,14 +12,12 @@ const PetReview = (props) => {
             });
         };
         setUserReview(newState);
-    }, []);
+    }, [props]);
 
-    
     return (
         <>
         {
             userReview.map( (petReviews) => {
-                console.log(petReviews.key)
                 return (
                     <article key={petReviews.key}>
                         <div className="reviewerInfo">
