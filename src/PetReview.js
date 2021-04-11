@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 
 const PetReview = (props) => {
-    console.log(props)
     const [userReview, setUserReview] = useState([]);
     useEffect( () => {
         const newState = [];

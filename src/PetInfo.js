@@ -6,6 +6,7 @@ import firebase from './firebase';
 
 const PetInfo = (props) => {
     const [userInput, setUserInput] = useState('');
+    const [review, setReview] = useState(false);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -19,6 +20,17 @@ const PetInfo = (props) => {
     const handleChange = (e) => {
         setUserInput(e.target.value)
     }
+
+    const chevronDown = <FontAwesomeIcon 
+    icon={faChevronDown} 
+    aria-hidden="false" 
+    title="Show reviews"
+    />
+
+    const chevronUp =  <FontAwesomeIcon 
+    icon={faChevronUp}
+    aria-hidden="false" 
+    title="Hide reviews"/>
 
     return (
         <>
@@ -56,10 +68,12 @@ const PetInfo = (props) => {
                     onChange={handleChange}></textarea>
                     <button onClick={handleClick}>Submit</button>
                 </form>
-                <FontAwesomeIcon icon={faChevronDown} aria-hidden="false" title="Show reviews"/>
-                <FontAwesomeIcon icon={faChevronUp} aria-hidden="false" title="Hide reviews"/>
+                <div className="reviewButton" onClick={() => {setReview(!review)}}>
+                    {review ? chevronDown : chevronUp }
+                </div>
             </div>
-            <PetReview reviews={props.reviewObj}/>
+            {review && <PetReview reviews={props.reviewObj}/>}
+            
         </>
     )
 }
