@@ -149,3 +149,13 @@ article {
 .name {
   font-weight: 700;
 }
+
+/* footer styles */
+footer {
+  border: 2px black solid;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+}
