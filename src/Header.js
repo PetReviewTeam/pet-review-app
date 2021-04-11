@@ -1,8 +1,10 @@
 const Header = () => {
     return (
-        <div>
-            <h1>Pet Reviews!</h1>
-        </div>
+        <>
+            <header>
+                <h1>Pet Reviews!</h1>
+            </header>
+        </>
     )
 }
 

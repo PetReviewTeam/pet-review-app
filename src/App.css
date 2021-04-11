@@ -48,6 +48,10 @@ h1 {
   text-align: center;
 }
 
+header {
+  margin-bottom: 100px;
+}
+
 /* pet box styling */
 .petInfoFlex {
   display: flex;
@@ -154,8 +158,63 @@ article {
 footer {
   border: 2px black solid;
   text-align: center;
+  margin-top: 100px;
 }
 
 footer a {
   text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .imgContainer {
+    margin-top: 30px;
+  }
+
+  .petInfoBox {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .information {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex: 1 0 150px
+  }
+
+  .review {
+    flex-direction: row;
+    width: 80%;
+    margin-bottom: 30px;
+  }
+
+  textarea {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .reviewButton {
+    bottom: 20px;
+  }
+
+  li {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 630px) {
+  .review {
+    flex-direction: column;
+  }
+
+  button {
+    align-self: center;
+    margin-top: 30px;
+  }
+
+  .reviewButton {
+    bottom: 25px;
+  }
 }
