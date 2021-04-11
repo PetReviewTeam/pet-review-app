@@ -181,7 +181,8 @@ footer a {
     width: 60%;
     margin-top: 30px;
     margin-bottom: 30px;
-    flex: 1 0 150px
+    flex: 1 0 150px;
+    justify-content: flex-start;
   }
 
   .review {
