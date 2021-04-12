@@ -20,7 +20,7 @@ const PetReview = (props) => {
                 return (
                     <article key={petReviews.key}>
                         <div className="reviewerInfo">
-                            <p className="name">Anonymous Pet Lover</p>
+                            <p className="name">ScoobySnacks420</p>
                             <p>April 10, 2021</p>
                         </div>
                         <div className="reviewText">
