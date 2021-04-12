@@ -63,8 +63,7 @@ const PetInfo = (props) => {
                     <textarea 
                     name="leaveReview" 
                     id="leaveReview" 
-                    placeholder="Leave a message about the pet!" 
-                    className="userTextField"
+                    placeholder="Tell me how cute I am!"
                     value={userInput} 
                     onChange={handleChange}></textarea>
                     <button onClick={handleClick}>Submit</button>

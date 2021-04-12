@@ -73,13 +73,13 @@ ul li {
   display: flex;
   width: 80%;
   justify-content: space-evenly;
-  border: #282627 solid 2px;
+  border: #55514E solid 2px;
   min-height: 350px;
   position: relative;
   margin-bottom: 30px;
   background-color: #C4D2E1;
   border-radius: 20px;
-  box-shadow: 5px 5px 0 0 #55514E;
+  box-shadow: 3px 3px 0 0 #55514E;
 }
 
 .reviewButton {
@@ -116,6 +116,7 @@ textarea {
   resize: none;
   width: 100%;
   height: 50%;
+  border: 1px transparent solid;
 }
 
 .review {
@@ -129,11 +130,20 @@ textarea {
 button {
   padding: 10px 20px;
   align-self: flex-end;
+  border: 1px solid transparent;
+  background-color: #55514E;
+  color: white;
 }
 
 button:hover,
 button:focus {
   cursor: pointer;
+  background-color: white;
+  color: #55514E;
+}
+
+button:active {
+  transform: translateY(2px);
 }
 
 /* reviews styling */
@@ -205,7 +215,6 @@ footer a {
   textarea {
     margin-right: 30px;
     margin-left: 30px;
-    background: #1D2C38;
   }
 
   .reviewButton {
