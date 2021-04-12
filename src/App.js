@@ -2,12 +2,14 @@ import './App.css';
 import firebase from './firebase';
 import Header from './Header.js';
 import {useState, useEffect} from 'react';
+import PetInfo from './PetInfo';
+import Footer from './Footer.js'
 
 
 
 function App() {
-  const [review, setReview] = useState('');
-  const [userInput, setUserInput] = useState('');
+  // const [review, setReview] = useState('');
+  // const [userInput, setUserInput] = useState('');
   const [petInfo, setPetInfo] = useState([])
 
   useEffect( () => {
@@ -15,7 +17,6 @@ function App() {
     dbRef.on('value', (response) => {
       const newState = [];
       const data = response.val();
-      console.log(data)
       for (let key in data) {
         newState.push({
           age: data[key].age,
@@ -24,7 +25,8 @@ function App() {
           name: data[key].name,
           personality: data[key].personality,
           species: data[key].species,
-          url: data[key].url
+          url: data[key].url,
+          id: key
         })
       };
       setPetInfo(newState);
@@ -34,13 +36,30 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <ul>
       {
-        petInfo.map( (petArray) => {
+        petInfo.map( (petArray, index) => {
           return (
-            console.log(petArray)
+            // console.log(petArray)
+            <PetInfo
+              species={petArray.species}
+              name={petArray.name}
+              age={petArray.age}
+              likes={petArray.likes}
+              dislikes={petArray.dislikes}
+              personality={petArray.personality}
+              url={petArray.url}
+              id={petArray.id}
+              key={`pet${index}`}
+            />
+
           )
         })
       }
+      </ul>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
