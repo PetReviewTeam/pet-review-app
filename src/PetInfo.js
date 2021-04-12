@@ -12,8 +12,8 @@ const PetInfo = (props) => {
         e.preventDefault();
         const dbRef = firebase.database().ref(props.id);
         if (userInput) {
-        dbRef.child('reviews').push(userInput)
-        setUserInput('');
+            dbRef.child('reviews').push(userInput)
+            setUserInput('');
         }
     }
 

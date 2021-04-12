@@ -50,6 +50,7 @@ h1 {
 
 header {
   margin-bottom: 100px;
+  border: 2px solid black;
 }
 
 /* pet box styling */
@@ -217,5 +218,10 @@ footer a {
 
   .reviewButton {
     bottom: 25px;
+  }
+
+  .reviewerInfo {
+    flex-direction: column;
+    justify-content: space-around;
   }
 }
