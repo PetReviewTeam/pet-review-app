@@ -13,16 +13,14 @@ const PetReview = (props) => {
         setUserReview(newState);
     }, [props]);
 
+
     return (
         <>
         {
             userReview.map( (petReviews) => {
                 return (
                     <article key={petReviews.key}>
-                        <div className="reviewerInfo">
-                            <p className="name">ScoobySnacks420</p>
-                            <p>April 10, 2021</p>
-                        </div>
+                        <p className="name">ScoobySnacks420</p>
                         <div className="reviewText">
                             <p>{petReviews.review}</p>
                         </div>
