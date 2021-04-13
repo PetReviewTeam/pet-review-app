@@ -24,7 +24,7 @@ function App() {
           name: data[key].name,
           personality: data[key].personality,
           species: data[key].species,
-          image: data[key].url,
+          image: data[key].image,
           id: key,
           reviews: data[key].reviews
         })
