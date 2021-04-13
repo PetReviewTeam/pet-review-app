@@ -40,22 +40,22 @@ const PetInfo = (props) => {
                 </div>
                 <ul className="information">
                     <li>
+                        <h3><span className="petAttribute">Name:</span> {props.name}</h3>
+                    </li>
+                    <li>
                         <p><span className="petAttribute">Species:</span> {props.species}</p>
                     </li>
                     <li>
-                        <p><span className="petAttribute">Name:</span> {props.name}</p>
-                    </li>
-                    <li>
                         <p><span className="petAttribute">Age:</span> {props.age} years</p>
-                    </li>
-                    <li>
-                        <p><span className="petAttribute">Personality:</span> {props.personality}</p>
                     </li>
                     <li>
                         <p><span className="petAttribute">Likes:</span> {props.likes}</p>
                     </li>
                     <li>
                         <p><span className="petAttribute">Dislikes:</span> {props.dislikes}</p>
+                    </li>
+                    <li>
+                        <p><span className="petAttribute">Personality:</span> {props.personality}</p>
                     </li>     
                 </ul>
                 <form action="submit" className="review">
@@ -63,7 +63,7 @@ const PetInfo = (props) => {
                     <textarea 
                     name="leaveReview" 
                     id="leaveReview" 
-                    placeholder="Tell me how cute I am!"
+                    placeholder="Tell me that I'm cute or something🥰" 
                     value={userInput} 
                     onChange={handleChange}></textarea>
                     <button onClick={handleClick}>Submit</button>
@@ -77,5 +77,5 @@ const PetInfo = (props) => {
         </>
     )
 }
- 
+
 export default PetInfo;
