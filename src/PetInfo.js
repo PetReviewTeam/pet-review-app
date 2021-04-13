@@ -7,12 +7,11 @@ import firebase from './firebase';
 const PetInfo = (props) => {
     const [userInput, setUserInput] = useState('');
     const [review, setReview] = useState(false);
-
     const handleClick = (e) => {
         e.preventDefault();
         const dbRef = firebase.database().ref(props.id);
         if (userInput) {
-            dbRef.child('reviews').push(userInput)
+            dbRef.child('reviews').push(userInput);
             setUserInput('');
         }
     }
@@ -24,13 +23,13 @@ const PetInfo = (props) => {
     const chevronDown = <FontAwesomeIcon 
     icon={faChevronDown} 
     aria-hidden="false" 
-    title="Show reviews"
+    title="Hide reviews"
     />
 
     const chevronUp =  <FontAwesomeIcon 
     icon={faChevronUp}
     aria-hidden="false" 
-    title="Hide reviews"/>
+    title="Show reviews"/>
 
     return (
         <>
