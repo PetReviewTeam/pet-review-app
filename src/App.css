@@ -188,8 +188,8 @@ button {
 button:hover,
 button:focus {
   cursor: pointer;
-  background-color: white;
-  color: #282627;
+  background-color: #a1c2f1;
+  color: #1D2C38;
 }
 
 button:active {
