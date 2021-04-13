@@ -217,6 +217,19 @@ article {
   margin-left: 20px;
 }
 
+/* pet entry form styling */
+.petEntry {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.petEntry input {
+  width: 33%;
+}
+
+
 /* footer styles */
 footer {
   width: 100vw;
@@ -295,3 +308,4 @@ footer a {
     justify-content: space-around;
   }
 }
+
