@@ -11,7 +11,7 @@ const UserPetForm = () => {
         image: "",
         personality: "",
     });
-  
+
 
     const submitButton = (e) => {
         e.preventDefault();
@@ -42,8 +42,18 @@ const UserPetForm = () => {
             id="name" 
             name="name"
             maxLength="15" 
-            placeholder="Pet Name" 
+            placeholder="Pet's Name" 
             value={userPet.name} 
+            onChange={handleChange}
+            required/>
+
+            <label htmlFor="species" className="sr-only">What is your pet's species?</label>
+            <input type="text" 
+            id="species" 
+            name="species"
+            maxLength="15" 
+            placeholder="Pet's Species" 
+            value={userPet.species} 
             onChange={handleChange}
             required/>
 
@@ -52,22 +62,13 @@ const UserPetForm = () => {
             id="age" 
             name="age" 
             maxLength="3" 
-            placeholder="Pet Age" 
+            min="0"
+            placeholder="Pet's Age" 
             value={userPet.age} 
             onChange={handleChange}
             required/>
 
-            <label htmlFor="species" className="sr-only">What is yourPet's species?</label>
-            <input type="text" 
-            id="species" 
-            name="species"
-            maxLength="15" 
-            placeholder="Pet Species" 
-            value={userPet.species} 
-            onChange={handleChange}
-            required/>
-
-            <label htmlFor="likes" className="sr-only">What does your petlike?</label>
+            <label htmlFor="likes" className="sr-only">What does your pet like?</label>
             <input 
             type="text" 
             id="likes" 
@@ -78,7 +79,7 @@ const UserPetForm = () => {
             onChange={handleChange}
             required/>
 
-            <label htmlFor="dislikes" className="sr-only">What does yourpet not like?</label>
+            <label htmlFor="dislikes" className="sr-only">What does your pet not like?</label>
             <input type="text" 
             id="dislikes" 
             name="dislikes"
@@ -88,7 +89,7 @@ const UserPetForm = () => {
             onChange={handleChange}
             required/>
             
-            <label htmlFor="personality" className="sr-only">What is yourpet's personality like?</label>
+            <label htmlFor="personality" className="sr-only">What is your pet's personality like?</label>
             <input type="text" 
             id="personality" 
             name="personality"
@@ -107,7 +108,7 @@ const UserPetForm = () => {
             onChange={handleChange}
             required/>
 
-            <button type="submit">Show off your pet!</button>
+            <button className="entryButton" type="submit">Submit for Boops</button>
         </form>
     )
 }
