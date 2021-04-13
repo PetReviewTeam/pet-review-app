@@ -65,7 +65,7 @@ const PetInfo = (props) => {
                     placeholder="Tell me that I'm cute or something🥰" 
                     value={userInput} 
                     onChange={handleChange}></textarea>
-                    <button onClick={handleClick}>Submit</button>
+                    <button onClick={handleClick}>Leave Review</button>
                 </form>
                 <div className="reviewButton" onClick={() => {setReview(!review)}}>
                     {review ? chevronDown : chevronUp }
