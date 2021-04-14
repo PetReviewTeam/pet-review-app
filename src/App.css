@@ -254,6 +254,39 @@ article {
   margin: 15px;
 }
 
+/* Heart Styling */
+
+.heart {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  bottom: 55px;
+  right: 280px;
+  width: 50px;
+}
+
+.clickedHeart {
+  color: red;
+}
+
+.unclickedHeart {
+  color: black;
+}
+
+.clickedHeart:hover,
+.clickedHeart:focus,
+.unclickedHeart:hover,
+.unclickedHeart:focus {
+  cursor: pointer;
+}
+
+.clickedHeart p {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+
 
 /* footer styles */
 footer {
