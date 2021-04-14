@@ -2,14 +2,14 @@ import './App.css';
 import firebase from './firebase';
 import Header from './Header.js';
 import {useState, useEffect} from 'react';
+import Filter from './Filter.js';
 import PetInfo from './PetInfo.js';
-import UserPetForm from './UserPetForm.js'
+import UserPetForm from './UserPetForm.js';
 import Footer from './Footer.js';
 
-
-
 function App() {
-  const [petInfo, setPetInfo] = useState([])
+  const [petInfo, setPetInfo] = useState([]);
+  const [filteredPet, setFilteredPet] = useState([]);
 
   useEffect( () => {
     const dbRef = firebase.database().ref()
@@ -33,10 +33,26 @@ function App() {
     });
   }, []);
 
+  const filterPets = (e, userChoice) => {
+    e.preventDefault();
+    console.log(userChoice)
+    const copyOfPetInfo = [...petInfo]
+    if (userChoice === 'all') {
+      setFilteredPet(copyOfPetInfo)
+    } else {
+        const filteredPetInfo = copyOfPetInfo.filter( (pet) => {
+        return pet.species.toLowerCase() === userChoice;
+      });
+      setFilteredPet(filteredPetInfo);
+    }
+  }
+  console.log(filteredPet)
+ 
   return (
     <div className="App">
       <Header />
       <div className="wrapper">
+        <Filter pet={petInfo} filteredPets={filterPets}/>
         <div className="petInfoFlex">
           {
             petInfo.map( (petObject, i) => {

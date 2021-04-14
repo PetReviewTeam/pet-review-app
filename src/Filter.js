@@ -1,15 +1,14 @@
 import { useState } from 'react';
 
 function Filter(props) {
-
     const [userChoice, setUserChoice] = useState('all');
 
     const handleUserChoice = (e) => {
-        // console.log(e.target.value);
         setUserChoice(e.target.value);
     }
+
     return (
-        <form onSubmit={(e) => props.filterPets(e, userChoice)}>
+        <form onSubmit={(e) => props.filteredPets(e, userChoice)}>
             <h4>Select pets by species</h4>
             <select 
                 name="petSpecies" 
@@ -21,7 +20,7 @@ function Filter(props) {
                 <option value="bird">Bird</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
-                <option value="Fish">Fish</option>
+                <option value="fish">Fish</option>
                 <option value="rabbit">Rabbit</option>
                 <option value="reptile">Reptile</option>
                 <option value="other">Other</option>
