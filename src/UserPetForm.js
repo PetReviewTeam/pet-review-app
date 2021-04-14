@@ -48,14 +48,21 @@ const UserPetForm = () => {
             required/>
 
             <label htmlFor="species" className="sr-only">What is your pet's species?</label>
-            <input type="text" 
-            id="species" 
-            name="species"
-            maxLength="15" 
-            placeholder="Pet's Species" 
-            value={userPet.species} 
-            onChange={handleChange}
-            required/>
+            <select 
+                name="species" 
+                id="species" 
+                value={userPet.species}
+                onChange={handleChange}
+            >
+                <option value="placeholder" disabled>Select Pet Species</option>
+                <option value="Bird">Bird</option>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Fish">Fish</option>
+                <option value="Rabbit">Rabbit</option>
+                <option value="Reptile">Reptile</option>
+                <option value="Other">Other</option>
+            </select>
 
             <label htmlFor="age" className="sr-only">How old is your pet</label>
             <input type="number" 

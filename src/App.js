@@ -30,6 +30,7 @@ function App() {
         })
       };
       setPetInfo(newState);
+      setFilteredPet(newState);
     });
   }, []);
 
@@ -46,7 +47,7 @@ function App() {
       setFilteredPet(filteredPetInfo);
     }
   }
-  console.log(filteredPet)
+
  
   return (
     <div className="App">
@@ -54,23 +55,33 @@ function App() {
       <div className="wrapper">
         <Filter pet={petInfo} filteredPets={filterPets}/>
         <div className="petInfoFlex">
-          {
-            petInfo.map( (petObject, i) => {
-              return (
-                <PetInfo 
-                name={petObject.name} 
-                age={petObject.age}
-                dislikes={petObject.dislikes}
-                likes={petObject.likes}
-                personality={petObject.personality}
-                species={petObject.species}
-                image={petObject.image}
-                id={petObject.id}
-                reviewObj={petObject.reviews}
-                key={`pet${i}`}/>
-              )
-            })
+          {filteredPet.length === 0 ? (
+            <div className="petInfoBox">
+              <h2>Seems like there is no available pet information. Maybe you want to upload yours!</h2>
+            </div>
+          ) : (
+            <>
+            {
+              filteredPet.map( (petObject, i) => {
+                return (
+                  <PetInfo 
+                  name={petObject.name} 
+                  age={petObject.age}
+                  dislikes={petObject.dislikes}
+                  likes={petObject.likes}
+                  personality={petObject.personality}
+                  species={petObject.species}
+                  image={petObject.image}
+                  id={petObject.id}
+                  reviewObj={petObject.reviews}
+                  key={`pet${i}`}/>
+                )
+              })
+            }
+            </>
+          )
           }
+          
         </div>
         <UserPetForm />
       </div>
