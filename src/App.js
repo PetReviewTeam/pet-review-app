@@ -3,7 +3,7 @@ import firebase from './firebase';
 import Header from './Header.js';
 import {useState, useEffect} from 'react';
 import PetInfo from './PetInfo.js';
-// import UserPetForm from './UserPetForm.js'
+import UserPetForm from './UserPetForm.js'
 import Footer from './Footer.js';
 
 
@@ -56,7 +56,7 @@ function App() {
             })
           }
         </div>
-        {/* <UserPetForm /> */}
+        <UserPetForm />
       </div>
       <Footer />
     </div>

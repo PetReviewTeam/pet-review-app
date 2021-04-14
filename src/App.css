@@ -167,6 +167,11 @@ textarea {
   width: 100%;
   height: 50%;
   background-color: #f7fcfe;
+  color: #282627;
+}
+
+textarea:placeholder-shown {
+  font-style: italic;
 }
 
 .review {
@@ -188,8 +193,8 @@ button {
 button:hover,
 button:focus {
   cursor: pointer;
-  background-color: white;
-  color: #282627;
+  background-color: #a1c2f1;
+  color: #1D2C38;
 }
 
 button:active {
@@ -217,6 +222,70 @@ article {
   margin-left: 20px;
 }
 
+/* pet entry form styling */
+.petEntry {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #7191c2;
+  min-height: 350px;
+  position: relative;
+  margin-bottom: 30px;
+  background-color: #eaf4fc;
+  border-radius: 20px;
+}
+
+.petEntry input {
+  width: 90%;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-top: 15px;
+  color: #282627;
+}
+
+.petEntry input:placeholder-shown {
+  font-style: italic;
+}
+
+.entryButton {
+  align-self: center;
+  margin: 15px;
+}
+
+/* Heart Styling */
+
+.heart {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  bottom: 40px;
+  right: 280px;
+  width: 50px;
+}
+
+.clickedHeart {
+  color: red;
+}
+
+.unclickedHeart {
+  color: #1D2C38;
+}
+
+.unclickedHeart:hover,
+.unclickedHeart:focus {
+  cursor: pointer;
+}
+
+.clickedHeart p {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+
+
 /* footer styles */
 footer {
   width: 100vw;
@@ -234,6 +303,12 @@ footer a {
 }
 footer a {
   text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+  cursor: pointer;
+  color: #1D2C38;
 }
 
 @media (max-width: 850px) {
@@ -295,3 +370,4 @@ footer a {
     justify-content: space-around;
   }
 }
+

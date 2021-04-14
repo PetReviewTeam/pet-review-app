@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import firebase from './firebase';
+import Heart from './Heart.js'
 
 const PetInfo = (props) => {
     const [userInput, setUserInput] = useState('');
@@ -65,8 +66,9 @@ const PetInfo = (props) => {
                     placeholder="Tell me that I'm cute or something🥰" 
                     value={userInput} 
                     onChange={handleChange}></textarea>
-                    <button onClick={handleClick}>Submit</button>
+                    <button onClick={handleClick}>Leave Review</button>
                 </form>
+                <Heart petObj={props}/>
                 <div className="reviewButton" onClick={() => {setReview(!review)}}>
                     {review ? chevronDown : chevronUp }
                 </div>
