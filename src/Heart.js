@@ -1,21 +1,36 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import firebase from './firebase';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 const Heart = (props) => {
     const [heart, setHeart] = useState(false)
-    const handleClick = (e) => {
-        console.log(e)
+    const [counter, setCounter] = useState(0);
+    const handleClick = () => {
         setHeart(true);
-        const dbRef = firebase.database().ref()
+        const dbRef = firebase.database().ref(props.petObj.id)
+        if (heart===false) {
+            dbRef.child('heart').push('1 heart click')
+        }
     }
+    
+    useEffect( () => {
+        const dbRef = firebase.database().ref(props.petObj.id)
+        dbRef.on('value', (response) => {
+            const heartArray = [];
+            const data = response.val();
+            for (let key in data.heart) {
+                heartArray.push(key);
+            }
+            setCounter(heartArray.length);
+        })
+    }, [props.petObj.id])
 
     return (
         <div className="heart">
-            <p>0</p>
+            <p>{counter}</p>
             {
-                heart ? (<button className="clickedHeart" onClick={handleClick}disabled><FontAwesomeIcon icon={faHeart}/></button>) : (<button className="unclickedHeart" onClick={handleClick}><FontAwesomeIcon icon={faHeart}/></button>)
+                heart ? (<div className="clickedHeart" onClick={handleClick}><FontAwesomeIcon icon={faHeart}/></div>) : (<div className="unclickedHeart" onClick={handleClick}><FontAwesomeIcon icon={faHeart}/></div>)
             }
         </div>
     )    
