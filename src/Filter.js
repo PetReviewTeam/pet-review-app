@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function Filter(props) {
 
-    const [userChoice, setUserChoice] = useState('placeholder');
+    const [userChoice, setUserChoice] = useState('all');
 
     const handleUserChoice = (e) => {
         // console.log(e.target.value);
@@ -17,11 +17,11 @@ function Filter(props) {
                 value={userChoice}
                 onChange={handleUserChoice}
             >
-                <option value="placeholder">All</option>
-                <option value="aquatic">Aquatic</option>
+                <option value="all">All</option>
                 <option value="bird">Bird</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
+                <option value="Fish">Fish</option>
                 <option value="rabbit">Rabbit</option>
                 <option value="reptile">Reptile</option>
                 <option value="other">Other</option>
