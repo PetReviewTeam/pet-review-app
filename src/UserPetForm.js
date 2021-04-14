@@ -5,7 +5,7 @@ const UserPetForm = () => {
     const [userPet, setUserPet] = useState({
         name: "",
         age: "",
-        species: "",
+        species: "placeholder",
         likes: "",
         dislikes: "",
         image: "",
