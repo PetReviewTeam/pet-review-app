@@ -436,8 +436,34 @@ footer a:focus {
   article {
     width: 90%;
   }
-
+  
   .information li {
     padding: 8px;
+  }
+}
+
+@media (max-width: 390px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .petInfoBox {
+    width: 90%;
+  }
+
+  textarea {
+    width: 90%;
+  }
+
+  .selection {
+    width: 300px;
+  }
+
+  .selection h3 {
+    font-size: 1.5rem;
+  }
+
+  .petEntry {
+    width: 300px;
   }
 }
