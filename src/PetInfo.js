@@ -36,7 +36,7 @@ const PetInfo = (props) => {
         <>
             <div className="petInfoBox">
                 <div className="imgContainer">
-                    <img src={props.image} alt={`cute pic of ${props.name}`}/>
+                    <img src={props.image} alt={`${props.name}`}/>
                 </div>
                 <div className="petInfoContainer">
                     <ul className="information">
