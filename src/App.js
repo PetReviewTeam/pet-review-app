@@ -36,7 +36,6 @@ function App() {
 
   const filterPets = (e, userChoice) => {
     e.preventDefault();
-    console.log(userChoice)
     const copyOfPetInfo = [...petInfo]
     if (userChoice === 'all') {
       setFilteredPet(copyOfPetInfo)
