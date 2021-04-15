@@ -13,6 +13,7 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 h1,
 h2,
 h3,
+h4,
 ul {
   margin: 0;
   padding: 0;
@@ -30,6 +31,8 @@ img {
   height: 200px;
   min-height: 100px;
   border: #1D2C38 2px solid;
+  align-content: center;
+  text-align: center;
 }
 
 body {
@@ -72,7 +75,7 @@ h2 {
 }
 
 header {
-  width: 100vw;
+  width: 100%;
   height: 600px;
   margin-bottom: 100px;
   border-bottom: 2px solid #7191c2;
@@ -83,7 +86,8 @@ header {
 }
 
 /* pet box styling */
-.petInfoFlex {
+.petInfoFlex, 
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -93,21 +97,76 @@ ul li {
   list-style: none;
 }
 
-h3 {
-  font-weight: 700;
-  font-size: 1.2rem;
+h3,
+h4,
+p,
+#dropDown {
   color: #1d2c38;
+}
+
+h3,
+h4 {
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+}
+
+h4 {
+  font-size: 1.2rem;
 }
 
 p {
   font-weight: 400;
   font-size: 1rem;
+}
+
+select {
+  font-style: italic;
   color: #1d2c38;
+}
+
+#dropDown {
+  font-style: normal;
+}
+
+.selection {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 200px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid #7191c2;
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: #eaf4fc;
+  border-radius: 20px;
+}
+
+.filterButton, 
+.entryButton {
+  align-self: center;
+  margin: 15px;
+}
+
+.petInfoBox h2 {
+  padding: 30px;
+}
+
+#noPets {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .petInfoBox {
   display: flex;
-  width: 80%;
+  flex-direction: row;
+  width: 100%;
   justify-content: space-evenly;
   border: 2px solid #7191c2;
   min-height: 350px;
@@ -115,6 +174,11 @@ p {
   margin-bottom: 30px;
   background-color: #eaf4fc;
   border-radius: 20px;
+}
+
+.petInfoContainer,
+.reviewContainer {
+  width: calc(100% / 3);
 }
 
 .reviewButton {
@@ -147,8 +211,15 @@ p {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 33%;
-  justify-content: space-evenly;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 10px;
+}
+
+.information li {
+  padding: 15px 0;
+  width: 100%;
 }
 
 .information p {
@@ -160,17 +231,25 @@ p {
   font-style: italic;
 }
 
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 textarea {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 400;
   resize: none;
   width: 100%;
-  height: 50%;
+  height: 60%;
   background-color: #f7fcfe;
   color: #282627;
 }
 
-textarea:placeholder-shown {
+textarea:placeholder-shown,
+.petEntry input:placeholder-shown {
   font-style: italic;
 }
 
@@ -179,7 +258,16 @@ textarea:placeholder-shown {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 33%;
+  width: 100%;
+  height: 100%;
+}
+
+.heartButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 
 button {
@@ -238,31 +326,23 @@ article {
   border-radius: 20px;
 }
 
-.petEntry input {
+.petEntry input, 
+.petEntry select {
   width: 90%;
   font-family: 'Noto Sans JP', sans-serif;
   margin-top: 15px;
   color: #282627;
 }
 
-.petEntry input:placeholder-shown {
-  font-style: italic;
-}
-
-.entryButton {
-  align-self: center;
-  margin: 15px;
-}
-
 /* Heart Styling */
 
 .heart {
-  position: absolute;
+  /* position: absolute; */
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  bottom: 40px;
-  right: 280px;
+  /* bottom: 40px; */
+  /* right: 280px; */
   width: 50px;
 }
 
@@ -288,7 +368,7 @@ article {
 
 /* footer styles */
 footer {
-  width: 100vw;
+  width: 100%;
   height: 150px;
   border-top: 2px solid #7191c2;
   text-align: center;
@@ -311,63 +391,53 @@ footer a:focus {
   color: #1D2C38;
 }
 
+/* media queries */
+
 @media (max-width: 850px) {
   .imgContainer {
     margin-top: 30px;
   }
 
   .petInfoBox {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-  }
-
-  .information {
-    flex-direction: row;
     flex-wrap: wrap;
-    width: 60%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    flex: 1 0 150px;
-    justify-content: flex-start;
-  }
-
-  .review {
-    flex-direction: row;
     width: 80%;
-    margin-bottom: 30px;
   }
 
-  textarea {
-    margin-right: 30px;
-    margin-left: 30px;
+  .petInfoContainer {
+    width: 30%;
+    margin-left: 40px;
   }
 
-  .reviewButton {
-    bottom: 20px;
+  .reviewContainer {
+    width: 300px;
+    height: 350px;
   }
 
-  li {
-    margin-right: 10px;
-  }
-}
-
-@media (max-width: 630px) {
-  .review {
-    flex-direction: column;
-  }
-
-  button {
-    align-self: center;
-    margin-top: 30px;
-  }
-
-  .reviewButton {
-    bottom: 25px;
-  }
-
-  .reviewerInfo {
-    flex-direction: column;
-    justify-content: space-around;
+  .heartButton {
+    padding-bottom: 20px;
   }
 }
 
+@media (max-width: 600px) {
+  .petInfoBox {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .petInfoContainer {
+    margin-left: 0;
+    width: 70%;
+  }
+
+  article {
+    width: 90%;
+  }
+
+  .information li {
+    padding: 8px;
+  }
+}

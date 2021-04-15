@@ -5,7 +5,7 @@ const UserPetForm = () => {
     const [userPet, setUserPet] = useState({
         name: "",
         age: "",
-        species: "",
+        species: "placeholder",
         likes: "",
         dislikes: "",
         image: "",
@@ -20,7 +20,7 @@ const UserPetForm = () => {
         setUserPet({
             name: "",
             age: "",
-            species: "",
+            species: "placeholder",
             likes: "",
             dislikes: "",
             image: "",
@@ -37,6 +37,7 @@ const UserPetForm = () => {
 
     return (
         <form action="submit" className="petEntry" onSubmit={submitButton}>
+
             <label htmlFor="name" className="sr-only">What is your pet's name?</label>
             <input type="text" 
             id="name" 
@@ -47,15 +48,23 @@ const UserPetForm = () => {
             onChange={handleChange}
             required/>
 
-            <label htmlFor="species" className="sr-only">What is your pet's species?</label>
-            <input type="text" 
-            id="species" 
-            name="species"
-            maxLength="15" 
-            placeholder="Pet's Species" 
-            value={userPet.species} 
-            onChange={handleChange}
-            required/>
+<           label htmlFor="species" id="petSpecies" className="sr-only">What is your pet's species?</label>
+            <select 
+                name="species" 
+                id="species" 
+                value={userPet.species}
+                onChange={handleChange}
+                required
+            >
+                <option value="placeholder" id="dropDown" disabled>Select Pet Species</option>
+                <option value="Bird" id="dropDown">Bird</option>
+                <option value="Cat" id="dropDown">Cat</option>
+                <option value="Dog" id="dropDown">Dog</option>
+                <option value="Fish" id="dropDown">Fish</option>
+                <option value="Rabbit" id="dropDown">Rabbit</option>
+                <option value="Reptile" id="dropDown">Reptile</option>
+                <option value="Other" id="dropDown">Other</option>
+            </select>
 
             <label htmlFor="age" className="sr-only">How old is your pet</label>
             <input type="number" 

@@ -36,39 +36,45 @@ const PetInfo = (props) => {
         <>
             <div className="petInfoBox">
                 <div className="imgContainer">
-                    <img src={props.image} alt=""/>
+                    <img src={props.image} alt={`${props.name}`}/>
                 </div>
-                <ul className="information">
-                    <li>
-                        <h3><span className="petAttribute">Name:</span> {props.name}</h3>
-                    </li>
-                    <li>
-                        <p><span className="petAttribute">Species:</span> {props.species}</p>
-                    </li>
-                    <li>
-                        <p><span className="petAttribute">Age:</span> {props.age} years</p>
-                    </li>
-                    <li>
-                        <p><span className="petAttribute">Likes:</span> {props.likes}</p>
-                    </li>
-                    <li>
-                        <p><span className="petAttribute">Dislikes:</span> {props.dislikes}</p>
-                    </li>
-                    <li>
-                        <p><span className="petAttribute">Personality:</span> {props.personality}</p>
-                    </li>     
-                </ul>
-                <form action="submit" className="review">
-                    <label htmlFor="leaveReview" className="sr-only"></label>
-                    <textarea 
-                    name="leaveReview" 
-                    id="leaveReview" 
-                    placeholder="Tell me that I'm cute or something🥰" 
-                    value={userInput} 
-                    onChange={handleChange}></textarea>
-                    <button onClick={handleClick}>Leave Review</button>
-                </form>
-                <Heart petObj={props}/>
+                <div className="petInfoContainer">
+                    <ul className="information">
+                        <li>
+                            <h4><span className="petAttribute">Name:</span> {props.name}</h4>
+                        </li>
+                        <li>
+                            <p><span className="petAttribute">Species:</span> {props.species}</p>
+                        </li>
+                        <li>
+                            <p><span className="petAttribute">Age:</span> {props.age} years</p>
+                        </li>
+                        <li>
+                            <p><span className="petAttribute">Likes:</span> {props.likes}</p>
+                        </li>
+                        <li>
+                            <p><span className="petAttribute">Dislikes:</span> {props.dislikes}</p>
+                        </li>
+                        <li>
+                            <p><span className="petAttribute">Personality:</span> {props.personality}</p>
+                        </li>     
+                    </ul>
+                </div>
+                <div className="reviewContainer">
+                    <form action="submit" className="review">
+                        <label htmlFor="leaveReview" className="sr-only"></label>
+                        <textarea 
+                        name="leaveReview" 
+                        id="leaveReview" 
+                        placeholder="Tell me that I'm cute or something🥰" 
+                        value={userInput} 
+                        onChange={handleChange}></textarea>
+                        <div className="heartButton">
+                            <Heart petObj={props}/>
+                            <button onClick={handleClick}>Leave Review</button>
+                        </div>
+                    </form>
+                </div>
                 <div className="reviewButton" onClick={() => {setReview(!review)}}>
                     {review ? chevronDown : chevronUp }
                 </div>
