@@ -445,6 +445,8 @@ footer a:focus {
 @media (max-width: 390px) {
   h1 {
     font-size: 2.5rem;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .petInfoBox {
