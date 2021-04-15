@@ -337,6 +337,13 @@ article {
   color: #282627;
 }
 
+.pImageAdd {
+  padding: 0 40px;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
 /* Heart Styling */
 
 .heart {

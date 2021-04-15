@@ -112,10 +112,12 @@ const UserPetForm = () => {
             <input type="url" 
             id="image" 
             name="image" 
-            placeholder="Pet Image URL"
+            placeholder="Pet Image Address"
             value={userPet.image} 
             onChange={handleChange}
             required/>
+
+            <p className="pImageAdd">(right-click an uploaded photo to copy the image address)</p>
 
             <button className="entryButton" type="submit">Submit for Boops</button>
         </form>
