@@ -2,14 +2,14 @@ import './App.css';
 import firebase from './firebase';
 import Header from './Header.js';
 import {useState, useEffect} from 'react';
+import Filter from './Filter.js';
 import PetInfo from './PetInfo.js';
-import UserPetForm from './UserPetForm.js'
+import UserPetForm from './UserPetForm.js';
 import Footer from './Footer.js';
 
-
-
 function App() {
-  const [petInfo, setPetInfo] = useState([])
+  const [petInfo, setPetInfo] = useState([]);
+  const [filteredPet, setFilteredPet] = useState([]);
 
   useEffect( () => {
     const dbRef = firebase.database().ref()
@@ -30,31 +30,56 @@ function App() {
         })
       };
       setPetInfo(newState);
+      setFilteredPet(newState);
     });
   }, []);
+
+  const filterPets = (e, userChoice) => {
+    e.preventDefault();
+    const copyOfPetInfo = [...petInfo]
+    if (userChoice === 'all') {
+      setFilteredPet(copyOfPetInfo)
+    } else {
+        const filteredPetInfo = copyOfPetInfo.filter( (pet) => {
+        return pet.species.toLowerCase() === userChoice;
+      });
+      setFilteredPet(filteredPetInfo);
+    }
+  }
 
   return (
     <div className="App">
       <Header />
       <div className="wrapper">
+        <Filter pet={petInfo} filteredPets={filterPets}/>
         <div className="petInfoFlex">
-          {
-            petInfo.map( (petObject, i) => {
-              return (
-                <PetInfo 
-                name={petObject.name} 
-                age={petObject.age}
-                dislikes={petObject.dislikes}
-                likes={petObject.likes}
-                personality={petObject.personality}
-                species={petObject.species}
-                image={petObject.image}
-                id={petObject.id}
-                reviewObj={petObject.reviews}
-                key={`pet${i}`}/>
-              )
-            })
+          {filteredPet.length === 0 ? (
+            <div className="petInfoBox" id="noPets">
+              <h2>Sorry, no information for this adorable pet is available. Please upload yours!</h2>
+            </div>
+          ) : (
+            <>
+            {
+              filteredPet.map( (petObject, i) => {
+                return (
+                  <PetInfo 
+                  name={petObject.name} 
+                  age={petObject.age}
+                  dislikes={petObject.dislikes}
+                  likes={petObject.likes}
+                  personality={petObject.personality}
+                  species={petObject.species}
+                  image={petObject.image}
+                  id={petObject.id}
+                  reviewObj={petObject.reviews}
+                  key={`pet${i}`}/>
+                )
+              })
+            }
+            </>
+          )
           }
+          
         </div>
         <UserPetForm />
       </div>
