@@ -48,7 +48,6 @@ function App() {
     }
   }
 
- 
   return (
     <div className="App">
       <Header />
@@ -56,8 +55,8 @@ function App() {
         <Filter pet={petInfo} filteredPets={filterPets}/>
         <div className="petInfoFlex">
           {filteredPet.length === 0 ? (
-            <div className="petInfoBox">
-              <h2>Seems like there is no available pet information. Maybe you want to upload yours!</h2>
+            <div className="petInfoBox" id="noPets">
+              <h2>Sorry, no information for this adorable pet is available. Please upload yours!</h2>
             </div>
           ) : (
             <>
