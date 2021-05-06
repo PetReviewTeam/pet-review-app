@@ -35,9 +35,8 @@ const UserPetForm = () => {
             [e.target.name]:value})
     }
 
-    return (
+    return ( 
         <form action="submit" className="petEntry" onSubmit={submitButton}>
-
             <label htmlFor="name" className="sr-only">What is your pet's name?</label>
             <input type="text" 
             id="name" 
