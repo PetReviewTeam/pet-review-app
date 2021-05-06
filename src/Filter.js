@@ -12,7 +12,6 @@ function Filter(props) {
             <>
             <div className="selection">
                 <h3>Select pets by species</h3>
-                <button type="submit" className="filterButton">Show Me Those Pets</button>
                 <div className="dropDownDiv">
                     <select 
                         name="petSpecies" 
@@ -30,7 +29,7 @@ function Filter(props) {
                         <option value="other" id="dropDown">Other</option>
                     </select>
                 </div>
-                
+                <button type="submit" className="filterButton">Show Me Those Pets</button>
             </div>
             </>
         </form>

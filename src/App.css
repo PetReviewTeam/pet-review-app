@@ -54,6 +54,11 @@ body {
   width: 100%;
 }
 
+.dropDownDiv {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
 /* Header Styling */
 
 h1,
